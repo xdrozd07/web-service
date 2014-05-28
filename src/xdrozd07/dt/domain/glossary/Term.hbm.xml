@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12.3.2014 10:30:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="xdrozd07.dt.domain.glossary.Term" table="term">
+  <id name="id" type="int">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="term" type="java.lang.String">
+   <column name="term"/>
+  </property>
+  <property generated="never" lazy="false" name="definition" type="java.lang.String">
+   <column name="definition"/>
+  </property>
+ </class>
+</hibernate-mapping>

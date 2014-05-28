@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.3.2014 17:15:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.metric.Metric" table="METRIC">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="inputAddress" type="java.lang.String">
+            <column name="input_address" />
+        </property>
+        <property name="inputType" type="java.lang.String">
+            <column name="input_type" />
+        </property>
+        <property name="inputFormat" type="java.lang.String">
+            <column name="input_format" />
+        </property>
+        
+        <array name="tresholds" cascade="all">
+         <key column="metric_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.metric.Treshold"/>
+        </array>
+        
+        <array name="values" cascade="all">
+         <key column="metric_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.metric.MetricValue"/>
+        </array>
+    </class>
+</hibernate-mapping>

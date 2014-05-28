@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 13.3.2014 12:03:20 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.CustomerSupport" table="customersupport">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" />
+        </property>
+        <property name="responseTime" type="java.util.Date">
+            <column name="response_time" />
+        </property>
+        <property name="response" type="java.lang.String">
+            <column name="response" />
+        </property>
+        <many-to-one name="contact" column="contact_id" class="xdrozd07.dt.domain.Contact" cascade="all"  fetch="join"/>
+        <array name="accessTimes" cascade="all" table="cs_at">
+         <key column="cs_id"/>
+         <list-index column="idx"/>
+         <many-to-many column="at_id" class="xdrozd07.dt.domain.AccessTime"/>
+      	</array>
+    </class>
+</hibernate-mapping>

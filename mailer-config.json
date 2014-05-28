@@ -1,0 +1,6 @@
+{
+	hostName : "smtp.gmail.com",
+	userName: "",
+	password: "",
+	smtpPort: 578
+}

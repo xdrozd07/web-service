@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 10.3.2014 18:34:24 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.Agreement" table="agreement">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="author" type="java.lang.String" lazy="false">
+            <column name="author" />
+        </property>
+        <property name="type" type="java.lang.String" lazy="false">
+            <column name="type" />
+        </property>
+        <property name="name" type="java.lang.String" lazy="false">
+            <column name="name" />
+        </property>
+        <property name="serviceDescription" type="java.lang.String" lazy="false">
+            <column name="servicedescription" />
+        </property>
+        <property name="slaDescription" type="java.lang.String" lazy="false">
+            <column name="sladescription" />
+        </property>
+        <property name="validFrom" type="java.util.Date" lazy="false">
+            <column name="valid_from" />
+        </property>
+        <property name="validTo" type="java.util.Date" lazy="false">
+            <column name="valid_to" />
+        </property>
+        <property name="securityDescription" type="java.lang.String" lazy="false">
+            <column name="securitydescription" />
+        </property>
+        <array name="glossaries" cascade="all">
+         <key column="sla_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.glossary.Glossary"/>
+       </array>
+       <array name="involvedParties" cascade="all" >
+         <key column="sla_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.InvolvedParty"/>
+      </array>
+      <many-to-one name="changemanagement" column="changemanagement_id" class="xdrozd07.dt.domain.ChangeManagement" cascade="all"  fetch="join" lazy="false"/>
+      <many-to-one name="predecessor" column="predecessor" class="xdrozd07.dt.domain.Agreement" cascade="all"  fetch="join" lazy="false"/>
+      <many-to-one name="customerSupport" column="customersupport_id" class="xdrozd07.dt.domain.CustomerSupport" cascade="all"  fetch="join" lazy="false"/>
+      <many-to-one name="serviceHours" column="servicehours_id" class="xdrozd07.dt.domain.ServiceHours" cascade="all"  fetch="join" lazy="false"/>
+      <many-to-one name="performance" column="performance_id" class="xdrozd07.dt.domain.Performance" cascade="all"  fetch="join" lazy="false"/>
+      
+       <array name="availability" cascade="all">
+         <key column="sla_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.Availability"/>
+       </array>
+       
+       <array name="reports" cascade="all">
+         <key column="agreement_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.Report"/>
+       </array>
+       
+    </class>
+</hibernate-mapping>

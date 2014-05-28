@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15.3.2014 14:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.AccessTime" table="accesstime">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="day" type="java.lang.String">
+            <column name="day" />
+        </property>
+        <property name="open" type="java.util.Date">
+            <column name="open" />
+        </property>
+        <property name="close" type="java.util.Date">
+            <column name="close" />
+        </property>
+    </class>
+</hibernate-mapping>

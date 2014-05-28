@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 31.3.2014 17:15:44 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.Report" table="report">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <property name="frequency" type="java.lang.String">
+            <column name="frequency" />
+        </property>
+        <property name="hour" type="int">
+            <column name="hour" />
+        </property>
+        <property name="day" type="int">
+            <column name="day" />
+        </property>
+        
+        <array name="contacts" cascade="all" table="report_contact">
+         <key column="report_id"/>
+         <list-index column="idx"/>
+         <many-to-many column="contact_id" class="xdrozd07.dt.domain.Contact"/>
+      	</array>
+      	
+      	<array name="metrics" cascade="all" table="report_metric">
+         <key column="report_id"/>
+         <list-index column="idx"/>
+         <many-to-many column="metric_id" class="xdrozd07.dt.domain.metric.Metric"/>
+      	</array>
+      	
+    </class>
+</hibernate-mapping>

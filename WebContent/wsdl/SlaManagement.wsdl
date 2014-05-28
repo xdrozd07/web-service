@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.dt.xdrozd07" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.dt.xdrozd07" xmlns:intf="http://service.dt.xdrozd07" xmlns:tns1="http://domain.dt.xdrozd07" xmlns:tns2="http://metric.domain.dt.xdrozd07" xmlns:tns3="http://glossary.domain.dt.xdrozd07" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.dt.xdrozd07" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://metric.domain.dt.xdrozd07"/>
+   <import namespace="http://glossary.domain.dt.xdrozd07"/>
+   <import namespace="http://domain.dt.xdrozd07"/>
+   <element name="getAgreements">
+    <complexType/>
+   </element>
+   <element name="getAgreementsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAgreementsReturn" type="tns1:Agreement"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_tns2_Listener">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:Listener"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_Treshold">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:Treshold"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_MetricValue">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:MetricValue"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Availability">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Availability"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_AccessTime">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:AccessTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns3_Term">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns3:Term"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns3_Glossary">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns3:Glossary"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Signatory">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Signatory"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_InvolvedParty">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:InvolvedParty"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns2_Metric">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns2:Metric"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Contact">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Contact"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Report">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Report"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOf_tns1_Event">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="tns1:Event"/>
+    </sequence>
+   </complexType>
+   <element name="addAgreement">
+    <complexType>
+     <sequence>
+      <element name="agreement" type="tns1:Agreement"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addAgreementResponse">
+    <complexType/>
+   </element>
+   <element name="updateAgreement">
+    <complexType>
+     <sequence>
+      <element name="agreement" type="tns1:Agreement"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAgreementResponse">
+    <complexType/>
+   </element>
+   <element name="getAuthorsAgreements">
+    <complexType>
+     <sequence>
+      <element name="author" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAuthorsAgreementsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAuthorsAgreementsReturn" type="tns1:Agreement"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="connectionTest">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="connectionTestResponse">
+    <complexType>
+     <sequence>
+      <element name="connectionTestReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteAgreement">
+    <complexType>
+     <sequence>
+      <element name="agreement" type="tns1:Agreement"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteAgreementResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://metric.domain.dt.xdrozd07" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://glossary.domain.dt.xdrozd07"/>
+   <import namespace="http://domain.dt.xdrozd07"/>
+   <import namespace="http://service.dt.xdrozd07"/>
+   <complexType name="Listener">
+    <sequence>
+     <element name="address" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="port" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Treshold">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="listeners" nillable="true" type="impl:ArrayOf_tns2_Listener"/>
+     <element name="value" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="MetricValue">
+    <sequence>
+     <element name="captured" nillable="true" type="xsd:dateTime"/>
+     <element name="id" type="xsd:int"/>
+     <element name="value" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="Metric">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="inputAddress" nillable="true" type="xsd:string"/>
+     <element name="inputFormat" nillable="true" type="xsd:string"/>
+     <element name="inputType" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="tresholds" nillable="true" type="impl:ArrayOf_tns2_Treshold"/>
+     <element name="values" nillable="true" type="impl:ArrayOf_tns2_MetricValue"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://domain.dt.xdrozd07" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://metric.domain.dt.xdrozd07"/>
+   <import namespace="http://glossary.domain.dt.xdrozd07"/>
+   <import namespace="http://service.dt.xdrozd07"/>
+   <complexType name="Availability">
+    <sequence>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="metric" nillable="true" type="tns2:Metric"/>
+    </sequence>
+   </complexType>
+   <complexType name="Contact">
+    <sequence>
+     <element name="country" nillable="true" type="xsd:string"/>
+     <element name="email" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="street" nillable="true" type="xsd:string"/>
+     <element name="telephone" nillable="true" type="xsd:string"/>
+     <element name="town" nillable="true" type="xsd:string"/>
+     <element name="web" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ChangeManagement">
+    <sequence>
+     <element name="contact" nillable="true" type="tns1:Contact"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="AccessTime">
+    <sequence>
+     <element name="close" nillable="true" type="xsd:dateTime"/>
+     <element name="day" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="open" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="CustomerSupport">
+    <sequence>
+     <element name="accessTimes" nillable="true" type="impl:ArrayOf_tns1_AccessTime"/>
+     <element name="contact" nillable="true" type="tns1:Contact"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="note" nillable="true" type="xsd:string"/>
+     <element name="response" nillable="true" type="xsd:string"/>
+     <element name="responseTime" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+   <complexType name="Signatory">
+    <sequence>
+     <element name="date" nillable="true" type="xsd:dateTime"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="InvolvedParty">
+    <sequence>
+     <element name="contact" nillable="true" type="tns1:Contact"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="role" nillable="true" type="xsd:string"/>
+     <element name="signatories" nillable="true" type="impl:ArrayOf_tns1_Signatory"/>
+    </sequence>
+   </complexType>
+   <complexType name="Performance">
+    <sequence>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="metrics" nillable="true" type="impl:ArrayOf_tns2_Metric"/>
+    </sequence>
+   </complexType>
+   <complexType name="Report">
+    <sequence>
+     <element name="contacts" nillable="true" type="impl:ArrayOf_tns1_Contact"/>
+     <element name="day" type="xsd:int"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="frequency" nillable="true" type="xsd:string"/>
+     <element name="hour" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="metrics" nillable="true" type="impl:ArrayOf_tns2_Metric"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Event">
+    <sequence>
+     <element name="close" nillable="true" type="xsd:dateTime"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="open" nillable="true" type="xsd:dateTime"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ServiceHours">
+    <sequence>
+     <element name="accessTimes" nillable="true" type="impl:ArrayOf_tns1_AccessTime"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="events" nillable="true" type="impl:ArrayOf_tns1_Event"/>
+     <element name="id" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="Agreement">
+    <sequence>
+     <element name="author" nillable="true" type="xsd:string"/>
+     <element name="availability" nillable="true" type="impl:ArrayOf_tns1_Availability"/>
+     <element name="changemanagement" nillable="true" type="tns1:ChangeManagement"/>
+     <element name="customerSupport" nillable="true" type="tns1:CustomerSupport"/>
+     <element name="glossaries" nillable="true" type="impl:ArrayOf_tns3_Glossary"/>
+     <element name="id" type="xsd:int"/>
+     <element name="involvedParties" nillable="true" type="impl:ArrayOf_tns1_InvolvedParty"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="performance" nillable="true" type="tns1:Performance"/>
+     <element name="predecessor" nillable="true" type="tns1:Agreement"/>
+     <element name="reports" nillable="true" type="impl:ArrayOf_tns1_Report"/>
+     <element name="securityDescription" nillable="true" type="xsd:string"/>
+     <element name="serviceDescription" nillable="true" type="xsd:string"/>
+     <element name="serviceDescritption" nillable="true" type="xsd:string"/>
+     <element name="serviceHours" nillable="true" type="tns1:ServiceHours"/>
+     <element name="slaDescription" nillable="true" type="xsd:string"/>
+     <element name="type" nillable="true" type="xsd:string"/>
+     <element name="validFrom" nillable="true" type="xsd:dateTime"/>
+     <element name="validTo" nillable="true" type="xsd:dateTime"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://glossary.domain.dt.xdrozd07" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://metric.domain.dt.xdrozd07"/>
+   <import namespace="http://domain.dt.xdrozd07"/>
+   <import namespace="http://service.dt.xdrozd07"/>
+   <complexType name="Term">
+    <sequence>
+     <element name="definition" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="term" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Glossary">
+    <sequence>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="terms" nillable="true" type="impl:ArrayOf_tns3_Term"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getAuthorsAgreementsResponse">
+
+      <wsdl:part element="impl:getAuthorsAgreementsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAgreementRequest">
+
+      <wsdl:part element="impl:updateAgreement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAuthorsAgreementsRequest">
+
+      <wsdl:part element="impl:getAuthorsAgreements" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="connectionTestResponse">
+
+      <wsdl:part element="impl:connectionTestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAgreementRequest">
+
+      <wsdl:part element="impl:deleteAgreement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAgreementResponse">
+
+      <wsdl:part element="impl:deleteAgreementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="connectionTestRequest">
+
+      <wsdl:part element="impl:connectionTest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addAgreementResponse">
+
+      <wsdl:part element="impl:addAgreementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAgreementsResponse">
+
+      <wsdl:part element="impl:getAgreementsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAgreementsRequest">
+
+      <wsdl:part element="impl:getAgreements" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateAgreementResponse">
+
+      <wsdl:part element="impl:updateAgreementResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addAgreementRequest">
+
+      <wsdl:part element="impl:addAgreement" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SlaManagement">
+
+      <wsdl:operation name="getAgreements">
+
+         <wsdl:input message="impl:getAgreementsRequest" name="getAgreementsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAgreementsResponse" name="getAgreementsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addAgreement">
+
+         <wsdl:input message="impl:addAgreementRequest" name="addAgreementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addAgreementResponse" name="addAgreementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAgreement">
+
+         <wsdl:input message="impl:updateAgreementRequest" name="updateAgreementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateAgreementResponse" name="updateAgreementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAuthorsAgreements">
+
+         <wsdl:input message="impl:getAuthorsAgreementsRequest" name="getAuthorsAgreementsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAuthorsAgreementsResponse" name="getAuthorsAgreementsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="connectionTest">
+
+         <wsdl:input message="impl:connectionTestRequest" name="connectionTestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:connectionTestResponse" name="connectionTestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAgreement">
+
+         <wsdl:input message="impl:deleteAgreementRequest" name="deleteAgreementRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteAgreementResponse" name="deleteAgreementResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SlaManagementSoapBinding" type="impl:SlaManagement">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getAgreements">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAgreementsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAgreementsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addAgreement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addAgreementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addAgreementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAgreement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateAgreementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateAgreementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAuthorsAgreements">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAuthorsAgreementsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAuthorsAgreementsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="connectionTest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="connectionTestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="connectionTestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteAgreement">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteAgreementRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteAgreementResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SlaManagementService">
+
+      <wsdl:port binding="impl:SlaManagementSoapBinding" name="SlaManagement">
+
+         <wsdlsoap:address location="http://localhost:8080/dip/services/SlaManagement"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
