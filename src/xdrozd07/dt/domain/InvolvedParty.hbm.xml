@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12.3.2014 19:40:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.InvolvedParty" table="involvedparty">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="role" type="java.lang.String">
+            <column name="role" />
+        </property>
+        <!-- 
+        <many-to-one name="contact" class="xdrozd07.dt.domain.Contact" fetch="join">
+            <column name="contact_id" />
+        </many-to-one> -->
+        
+        <many-to-one name="contact" column="contact_id" class="xdrozd07.dt.domain.Contact" cascade="all"  fetch="join"/>
+        
+        <array name="signatories" cascade="all">
+         <key column="involved_party_id"/>
+         <list-index column="idx"/>
+         <one-to-many class="xdrozd07.dt.domain.Signatory"/>
+      	</array>
+    </class>
+</hibernate-mapping>

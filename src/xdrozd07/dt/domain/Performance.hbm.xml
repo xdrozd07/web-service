@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17.3.2014 18:28:17 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="xdrozd07.dt.domain.Performance" table="performance">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <array name="metrics" cascade="all" table="performance_metric">
+        	<key column="performance_id"/>
+         	<list-index column="idx"/>
+        	<many-to-many column="metric_id" class="xdrozd07.dt.domain.metric.Metric"/>
+      	</array>
+    </class>
+</hibernate-mapping>
