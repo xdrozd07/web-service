@@ -1,12 +1,14 @@
 
 ## System for Service Level Agreement Management ##
 
-Masters Thesis
-Radek Drozd
+__Masters Thesis__
+
+_Radek Drozd_
+
 BUT FIT 2014
 
 
-### introduction ###
+### Introduction ###
 
 
 This is a github folder for web service source codes. There is a brief mention 
