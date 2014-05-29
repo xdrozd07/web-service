@@ -1,11 +1,7 @@
 
 ## System for Service Level Agreement Management ##
 
-__Masters Thesis__
-
-_Radek Drozd_
-
-BUT FIT 2014
+_Masters Thesis, Radek Drozd, BUT FIT 2014_
 
 
 ### Introduction ###
@@ -24,7 +20,7 @@ about deployment and list of needed libraries
 
 Libraries
 ------------
-(target folder: /dip/WebContent/WEB-INF/lib)
+_target folder: /dip/WebContent/WEB-INF/lib_
 
 * activation-1.1.jar
 * antlr-2.7.7.jar
