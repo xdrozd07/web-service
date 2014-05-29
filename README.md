@@ -1,7 +1,7 @@
 
 ## System for Service Level Agreement Management ##
 
-_Masters Thesis, Radek Drozd, BUT FIT 2014_
+_Masters Thesis, Radek Drozd, [BUT](http://www.vutbr.cz) [FIT](http://fit.vutbr.cz) 2014_
 
 
 ### Introduction ###
@@ -18,8 +18,9 @@ about deployment and list of needed libraries
 3. set up the outgoing email server in  /mailer-config.json
 4. deploy/public the service on server (server dependent)
 
-Libraries
-------------
+### Libraries ###
+
+
 _target folder: /dip/WebContent/WEB-INF/lib_
 
 * activation-1.1.jar
